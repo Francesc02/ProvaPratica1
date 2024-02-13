@@ -19,7 +19,7 @@ export class ChiamateAPIService {
   }
 
   searchFilm(query:string):Observable<any>{
-    return this.httpClient.get<any>(`https://api.themoviedb.org/3/search/movie?query=`+ query +'&'+this.apiKey)
+    return this.httpClient.get<any>(`https://api.themoviedb.org/3/search/movie?query=`+ query +'&'+this.apiKey + '&' + this.language)
   }
 
 }
