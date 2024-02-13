@@ -6,10 +6,9 @@
     <div *ngFor="let film of film.results" class="cardFilm">
     <p-card header="{{film.title}}" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
         <ng-template pTemplate="header">
-            <img alt="Card" src="{{film.poster_path}}">
+            <img src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
         </ng-template>
         <p>{{film.overview}}</p>
     </p-card>
 </div>
-
 </p-card>
