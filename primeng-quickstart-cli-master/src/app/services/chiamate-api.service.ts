@@ -13,7 +13,7 @@ export class ChiamateAPIService {
   //  includeVideo='include_video=true';
 
 
-  getFilm():Observable<any>{
+  getFilm(): Observable<any> {
     // return this.httpClient.get<any>(`https://api.themoviedb.org/3/movie/11?api_key=3bbdef2bd5b89192e8dc5daf7ec7702d`);
     return this.httpClient.get<any>(`https://api.themoviedb.org/3/discover/movie?`+ this.apiKey + '&' + this.language);
   }
