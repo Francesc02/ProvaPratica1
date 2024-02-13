@@ -39,8 +39,5 @@ export class HeaderComponent {
   }
 
   showValore(){
-    console.log(this.queryCerca);
-    console.log(this.router.config);
   }
-
 }

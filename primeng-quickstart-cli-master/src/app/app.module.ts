@@ -24,6 +24,8 @@ import { ProductService } from './services/product.service';
 import { HomePageComponent } from './home-page/container/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
 import {DividerModule} from 'primeng/divider';
+import { SharedModule } from './shared/shared.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -33,26 +35,10 @@ import {DividerModule} from 'primeng/divider';
         HomePageComponent
     ],
     imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        TableModule,
-        HttpClientModule,
-        InputTextModule,
-        DialogModule,
-        ToolbarModule,
-        ConfirmDialogModule,
-        RatingModule,
-        InputNumberModule,
-        InputTextareaModule,
-        RadioButtonModule,
-        DropdownModule,
-        ButtonModule,
-        MenubarModule,
-        RouterModule,
+        SharedModule,
+         MatCardModule,
+    FormsModule,
         AppRoutingModule,
-        CardModule,
-        DividerModule
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     providers: [ConfirmationService, ConfirmationService, MessageService, ProductService],

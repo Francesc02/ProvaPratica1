@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Product } from './models/product.interface';
 import { ProductService } from './services/product.service';
+import { Statuses } from './models/statuses.interface';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
 
     productDialog: boolean;
 
@@ -20,18 +21,19 @@ export class AppComponent implements OnInit {
 
     
     submitted: boolean;
+    
 
-    statuses: any[];
+    statuses: Statuses[];
 
     constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
-    ngOnInit() {
+    ngAfterViewInit() {
         this.productService.getProducts().then(data => this.products = data);
 
         this.statuses = [
-            {label: 'INSTOCK', value: 'instock'},
-            {label: 'LOWSTOCK', value: 'lowstock'},
-            {label: 'OUTOFSTOCK', value: 'outofstock'}
+            { label: 'INSTOCK', value: 'instock' },
+            { label: 'LOWSTOCK', value: 'lowstock' },
+            { label: 'OUTOFSTOCK', value: 'outofstock' }
         ];
     }
 
@@ -55,9 +57,10 @@ export class AppComponent implements OnInit {
     }
 
     editProduct(product: Product) {
-        this.product = {...product};
+        this.product = { ...product };
         this.productDialog = true;
     }
+
 
     deleteProduct(product: Product) {
         this.confirmationService.confirm({
