@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
 import { ProductService } from './services/product.service';
 import { HomePageComponent } from './home-page/container/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
+import {DividerModule} from 'primeng/divider';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { AppRoutingModule } from './app.routing.module';
         MenubarModule,
         RouterModule,
         AppRoutingModule,
-        CardModule
+        CardModule,
+        DividerModule
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     providers: [ConfirmationService, ConfirmationService, MessageService, ProductService],

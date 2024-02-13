@@ -1,14 +1,13 @@
-<p-card>
-    <h1>Benvenuto in Home</h1>
-    <h1>Working in progress...</h1>
+<div>
+<p-card style="flex-direction: row;">
     <button (click)="getFilm()">getFilm</button>
-
-    <div *ngFor="let film of film.results" class="cardFilm">
-    <p-card header="{{film.title}}" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
-        <ng-template pTemplate="header">
-            <img src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
-        </ng-template>
-        <p>{{film.overview}}</p>
-    </p-card>
-</div>
+    <div *ngFor="let film of film.results" class="cardFilm" >
+        <p-card header="{{film.title}}" subheader="{{film.release_date}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
+            <ng-template pTemplate="header">
+                <img src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
+            </ng-template>
+            <p>{{film.overview}}</p>
+        </p-card>
+    </div>
 </p-card>
+</div>
