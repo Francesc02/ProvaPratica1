@@ -9,12 +9,17 @@ import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
 })
 export class HomePageComponent {
 
+  film:any;
+
   constructor(public chiamateApi:ChiamateAPIService){}
+
 
   getFilm(){
     this.chiamateApi.getFilm().subscribe(result=>{
-      console.log(result);
+      this.film=result;
+      console.log(this.film);
+      console.log(this.film.results[0].title);
+      console.log(this.film.results[0].poster_path)
     })
   }
-
 }
