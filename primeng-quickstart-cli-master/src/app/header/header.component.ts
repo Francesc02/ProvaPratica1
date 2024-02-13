@@ -4,6 +4,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 import { ChiamateAPIService } from '../services/chiamate-api.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,7 +16,7 @@ export class HeaderComponent {
 
 
 
-  constructor(private router: Router,public chiamateApi:ChiamateAPIService){}
+  constructor(private router: Router,public chiamateApi:ChiamateAPIService,public location:Location){}
 
   ngOnInit() {
     
@@ -42,5 +43,8 @@ export class HeaderComponent {
 
   searchFilm(){
    this.router.navigate(["home/" + this.queryCerca]);
+  }
+  reload(){
+    this.router.navigate(["home"]);
   }
 }

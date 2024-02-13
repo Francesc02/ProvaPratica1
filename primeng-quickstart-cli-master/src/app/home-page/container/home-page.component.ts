@@ -18,7 +18,6 @@ export class HomePageComponent {
 
 
   ngOnInit(): void {
-
     this.query = JSON.stringify(this.route.snapshot.queryParams['query']);
     this.route.params.subscribe(params => {
       this.query = params['query'];
