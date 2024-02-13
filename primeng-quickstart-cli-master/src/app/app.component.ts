@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Product } from './domain/product';
-import { ProductService } from './services/productservice';
+import { Product } from './models/product.interface';
+import { ProductService } from './services/product.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    providers: [ConfirmationService,MessageService,ProductService]
 })
 export class AppComponent implements OnInit {
 
@@ -19,6 +18,7 @@ export class AppComponent implements OnInit {
 
     selectedProducts: Product[];
 
+    
     submitted: boolean;
 
     statuses: any[];

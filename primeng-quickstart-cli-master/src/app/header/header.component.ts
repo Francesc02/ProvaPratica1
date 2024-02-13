@@ -1,5 +1,6 @@
 import { style } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 @Component({
   selector: 'app-header',
@@ -9,6 +10,10 @@ import {MenuItem} from 'primeng/api';
 export class HeaderComponent {
   items: MenuItem[]; 
   queryCerca:string;
+
+
+
+  constructor(private router: Router){}
 
   ngOnInit() {
     
@@ -30,6 +35,8 @@ export class HeaderComponent {
 
   showValore(){
     console.log(this.queryCerca);
+    console.log(this.router.config);
+    this.router.navigate(['/home']);
   }
 
 }

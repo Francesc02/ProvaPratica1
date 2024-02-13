@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
@@ -14,19 +14,22 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { ToolbarModule } from 'primeng/toolbar';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import {MenubarModule} from 'primeng/menubar';
+import { RouterModule } from '@angular/router';
+import { ProductService } from './services/product.service';
+import { HomePageComponent } from './home-page/container/home-page.component';
+import { AppRoutingModule } from './app.routing.module';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        NavbarComponent
+        HomePageComponent
     ],
     imports: [
         BrowserModule,
@@ -44,9 +47,12 @@ import {MenubarModule} from 'primeng/menubar';
         RadioButtonModule,
         DropdownModule,
         ButtonModule,
-        MenubarModule
+        MenubarModule,
+        RouterModule,
+        AppRoutingModule
     ],
-    providers: [ConfirmationService],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+    providers: [ConfirmationService, ConfirmationService, MessageService, ProductService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
