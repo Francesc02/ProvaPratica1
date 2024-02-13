@@ -1,6 +1,4 @@
-import { style } from '@angular/animations';
-import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 import { ChiamateAPIService } from '../services/chiamate-api.service';
@@ -10,15 +8,15 @@ import { Location } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   items: MenuItem[]; 
-  queryCerca:string;
+  queryCerca: string;
 
 
 
   constructor(private router: Router,public chiamateApi:ChiamateAPIService,public location:Location){}
 
-  ngOnInit() {
+  ngAfterViewInit() {
     
       this.items = [
           {
@@ -30,12 +28,12 @@ export class HeaderComponent {
             icon:'pi pi-video',
               label: 'Film',
               items: [
-                  {label: 'Azione'},
-                  {label: 'Thriller'},
-                  {label: 'Romantico'},
-                  {label: 'Avventura'},
-                  {label: 'Horror'},
-                  {label: 'Fantascienza'}
+                  { label: 'Azione' },
+                  { label: 'Thriller' },
+                  { label: 'Romantico' },
+                  { label: 'Avventura' },
+                  { label: 'Horror' },
+                  { label: 'Fantascienza' }
               ]
           },
       ];
