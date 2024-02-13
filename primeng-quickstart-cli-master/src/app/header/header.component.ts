@@ -1,7 +1,9 @@
 import { style } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
+import { ChiamateAPIService } from '../services/chiamate-api.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,7 +15,7 @@ export class HeaderComponent {
 
 
 
-  constructor(private router: Router){}
+  constructor(private router: Router,public chiamateApi:ChiamateAPIService){}
 
   ngOnInit() {
     
@@ -38,6 +40,7 @@ export class HeaderComponent {
       ];
   }
 
-  showValore(){
+  searchFilm(){
+   this.router.navigate(["home/" + this.queryCerca]);
   }
 }

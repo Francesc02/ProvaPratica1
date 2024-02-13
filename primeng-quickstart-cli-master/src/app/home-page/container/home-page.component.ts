@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
 
@@ -10,14 +11,29 @@ import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
 export class HomePageComponent {
 
   film: unknown | null = null;
+  query:string | undefined;
 
-  constructor(public chiamateApi:ChiamateAPIService){}
+  constructor(public chiamateApi:ChiamateAPIService,public route:ActivatedRoute){}
 
 
-  getFilm(){
+
+  ngOnInit(): void {
+
+    this.query = JSON.stringify(this.route.snapshot.queryParams['query']);
+    this.route.params.subscribe(params => {
+      this.query = params['query'];
+  }); 
+  console.log(this.query);
+
+  if(this.query){
+    this.chiamateApi.searchFilm(this.query).subscribe(result=>{
+      this.film=result;
+    })
+  }else{
     this.chiamateApi.getFilm().subscribe(result=>{
       this.film=result;
       console.log(this.film);
     })
-  }
+  }  
+}
 }

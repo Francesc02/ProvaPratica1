@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
+  { path: 'home/:query', component: HomePageComponent },
 ];
 
 @NgModule({
