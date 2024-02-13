@@ -26,7 +26,13 @@ export class HomePageComponent {
 
   if(this.query){
     this.chiamateApi.searchFilm(this.query).subscribe(result=>{
-      this.film=result;
+      
+      if(result.total_results == 0){
+        this.film = "Nessun film trovato, nome film non valido!"
+      }else{
+        this.film=result;
+      }
+      console.log(this.film);
     })
   }else{
     this.chiamateApi.getFilm().subscribe(result=>{
