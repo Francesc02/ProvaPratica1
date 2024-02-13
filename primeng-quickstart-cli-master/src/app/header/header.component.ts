@@ -21,13 +21,18 @@ export class HeaderComponent {
           {
               icon: 'pi pi-home',
               label: 'Home',
+              routerLink: '/home',
           },
           {
             icon:'pi pi-video',
               label: 'Film',
               items: [
-                  {label: 'Delete'},
-                  {label: 'Refresh'}
+                  {label: 'Azione'},
+                  {label: 'Thriller'},
+                  {label: 'Romantico'},
+                  {label: 'Avventura'},
+                  {label: 'Horror'},
+                  {label: 'Fantascienza'}
               ]
           },
       ];
@@ -36,7 +41,6 @@ export class HeaderComponent {
   showValore(){
     console.log(this.queryCerca);
     console.log(this.router.config);
-    this.router.navigate(['/home']);
   }
 
 }

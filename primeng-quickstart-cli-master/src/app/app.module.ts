@@ -15,7 +15,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmationService, MessageService } from 'primeng/api';
-
+import {CardModule} from 'primeng/card';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {MenubarModule} from 'primeng/menubar';
@@ -49,7 +49,8 @@ import { AppRoutingModule } from './app.routing.module';
         ButtonModule,
         MenubarModule,
         RouterModule,
-        AppRoutingModule
+        AppRoutingModule,
+        CardModule
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     providers: [ConfirmationService, ConfirmationService, MessageService, ProductService],
