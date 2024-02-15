@@ -17,6 +17,9 @@ export class HeaderComponent implements AfterViewInit {
   location: Location = inject(Location);
 
   ngAfterViewInit() {
+    if(!!this.items){
+      this.items=null;
+    }
     this.items = [
       {
         icon: 'pi pi-home',
@@ -39,7 +42,12 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   searchFilm() {
-    this.router.navigate(['home/' + this.queryCerca]);
+    if(!!this.queryCerca){
+      this.router.navigate(['home/' + this.queryCerca]);
+      console.log("sono dentro l'if");
+    }
+    console.log("sono fuori l'if");
+    console.log(this.queryCerca)
   }
   reload() {
     this.router.navigate(['home']);
