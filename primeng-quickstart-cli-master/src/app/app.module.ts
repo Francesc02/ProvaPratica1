@@ -26,9 +26,10 @@ import { AppRoutingModule } from './app.routing.module';
 import { DividerModule } from 'primeng/divider';
 import { SharedModule } from './shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
+import { DettaglioComponent } from './dettaglio/dettaglio.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomePageComponent],
+  declarations: [AppComponent, HeaderComponent, HomePageComponent,DettaglioComponent],
   imports: [SharedModule, MatCardModule, FormsModule, AppRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

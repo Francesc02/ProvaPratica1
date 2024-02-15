@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
 import { PrimeIcons} from 'primeng/api';
@@ -15,7 +15,7 @@ export class HomePageComponent {
   film: unknown | null = null;
   query:string | undefined;
 
-  constructor(public chiamateApi:ChiamateAPIService,public route:ActivatedRoute){}
+  constructor(public chiamateApi:ChiamateAPIService,public route:ActivatedRoute,public router:Router){}
 
 
 
@@ -40,4 +40,11 @@ export class HomePageComponent {
     })
   }  
 }
+
+goToDettaglio(id:number){
+  this.router.navigate(['dettaglio/' + id]);
+  console.log(id)
+
+}
+
 }

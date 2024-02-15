@@ -1,9 +1,8 @@
 
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
-import { ChiamateAPIService } from '../services/chiamate-api.service';
-import { Location } from '@angular/common';
-import {Component} from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import {Component, inject} from '@angular/core';
+import { ItemMocked } from '../shared/item.mocked.const';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,34 +10,11 @@ import {Component} from '@angular/core';
 })
 export class HeaderComponent{
   
-  constructor(public router:Router){}
+  router: Router = inject(Router);
 
-  queryCerca:string;
+  queryCerca: string = '';
 
-  public items: MenuItem[];
-
-    ngOnInit() {
-        this.items = [{
-            label: 'Home',
-            icon: 'pi pi-home',
-            routerLink: 'home'
-        },
-        {
-            label: 'Film',
-            items: [
-              { label: 'Azione' },
-              { label: 'Thriller' },
-              { label: 'Romantico' },
-              { label: 'Avventura' },
-              { label: 'Horror' },
-              { label: 'Fantascienza'}
-            ]
-        }];
-    }
-
-
-
-
+  items = ItemMocked;
   
   searchFilm() {
       this.router.navigate(['home/' + this.queryCerca]);
@@ -47,3 +23,32 @@ export class HeaderComponent{
     this.router.navigate(['home']);
   }
 }
+
+
+
+// public items: MenuItem[] = [{
+//           label: 'Home',
+//           icon: 'pi pi-home',
+//           routerLink: 'home'
+//       },
+//       {
+//           label: 'Film',
+//           items: [
+//             { label: 'Azione' },
+//             { label: 'Thriller' },
+//             { label: 'Romantico' },
+//             { label: 'Avventura' },
+//             { label: 'Horror' },
+//             { label: 'Fantascienza'}
+//           ]
+//       }];
+
+
+
+
+// searchFilm() {
+//     this.router.navigate(['home/' + this.queryCerca]);
+//   } 
+//   reload() {
+//   this.router.navigate(['home']);
+// }

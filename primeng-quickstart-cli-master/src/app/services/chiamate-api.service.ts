@@ -31,4 +31,8 @@ export class ChiamateAPIService {
         this.language
     );
   }
+
+  dettaglioFilm(id:number):Observable<any>{
+    return this.httpClient.get<any>(`https://api.themoviedb.org/3/movie/`+ id + '?' + this.apiKey);
+  }
 }
