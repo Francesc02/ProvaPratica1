@@ -1,26 +1,18 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { ChiamateAPIService } from '../services/chiamate-api.service';
 import { Location } from '@angular/common';
+import { AfterViewInit, ChangeDetectorRef, Component, inject } from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements AfterViewInit {
-  items: MenuItem[];
-  queryCerca: string = '';
-
-  router: Router = inject(Router);
-  chiamateApi: ChiamateAPIService = inject(ChiamateAPIService);
-  location: Location = inject(Location);
-
-  ngAfterViewInit() {
-    if(!!this.items){
-      this.items=null;
-    }
-    this.items = [
+  
+  
+  items: MenuItem[] = [
       {
         icon: 'pi pi-home',
         label: 'Home',
@@ -39,15 +31,23 @@ export class HeaderComponent implements AfterViewInit {
         ],
       },
     ];
+  queryCerca: string = '';
+
+  router: Router = inject(Router);
+  chiamateApi: ChiamateAPIService = inject(ChiamateAPIService);
+  location: Location = inject(Location);
+  cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
   }
 
   searchFilm() {
-    if(!!this.queryCerca){
+    if (this.queryCerca !== undefined){
       this.router.navigate(['home/' + this.queryCerca]);
-      console.log("sono dentro l'if");
+    } else {
+      return;
     }
-    console.log("sono fuori l'if");
-    console.log(this.queryCerca)
   }
   reload() {
     this.router.navigate(['home']);
