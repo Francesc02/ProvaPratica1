@@ -15,33 +15,28 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { RouterModule } from '@angular/router';
 import { ProductService } from './services/product.service';
 import { HomePageComponent } from './home-page/container/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
-import {DividerModule} from 'primeng/divider';
+import { DividerModule } from 'primeng/divider';
 import { SharedModule } from './shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
 
-
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        HomePageComponent
-    ],
-    imports: [
-        SharedModule,
-         MatCardModule,
-    FormsModule,
-        AppRoutingModule,
-    ],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-    providers: [ConfirmationService, ConfirmationService, MessageService, ProductService],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent, HeaderComponent, HomePageComponent],
+  imports: [SharedModule, MatCardModule, FormsModule, AppRoutingModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    ConfirmationService,
+    ConfirmationService,
+    MessageService,
+    ProductService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
