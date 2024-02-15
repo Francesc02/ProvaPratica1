@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
+import { PrimeIcons} from 'primeng/api';
+
 
 @Component({
   selector: 'app-home-page',
@@ -30,6 +32,9 @@ export class HomePageComponent {
     })
   }else{
     this.chiamateApi.getFilm().subscribe(result=>{
+      if(result.total_results == 0){
+        this.film="nome film non valido!"
+      }
       this.film=result;
       console.log(this.film);
     })

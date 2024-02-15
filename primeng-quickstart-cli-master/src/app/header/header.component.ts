@@ -3,53 +3,47 @@ import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { ChiamateAPIService } from '../services/chiamate-api.service';
 import { Location } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, inject } from '@angular/core';
+import {Component} from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements AfterViewInit {
+export class HeaderComponent{
   
-  
-  items: MenuItem[] = [
-      {
-        icon: 'pi pi-home',
-        label: 'Home',
-        routerLink: '/home',
-      },
-      {
-        icon: 'pi pi-video',
-        label: 'Film',
-        items: [
-          { label: 'Azione' },
-          { label: 'Thriller' },
-          { label: 'Romantico' },
-          { label: 'Avventura' },
-          { label: 'Horror' },
-          { label: 'Fantascienza' },
-        ],
-      },
-    ];
-  queryCerca: string = '';
+  constructor(public router:Router){}
 
-  router: Router = inject(Router);
-  chiamateApi: ChiamateAPIService = inject(ChiamateAPIService);
-  location: Location = inject(Location);
-  cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
+  queryCerca:string;
 
-  ngAfterViewInit() {
-    this.cdr.detectChanges();
-  }
+  public items: MenuItem[];
 
-  searchFilm() {
-    if (this.queryCerca !== undefined){
-      this.router.navigate(['home/' + this.queryCerca]);
-    } else {
-      return;
+    ngOnInit() {
+        this.items = [{
+            label: 'Home',
+            icon: 'pi pi-home',
+            routerLink: 'home'
+        },
+        {
+            label: 'Film',
+            items: [
+              { label: 'Azione' },
+              { label: 'Thriller' },
+              { label: 'Romantico' },
+              { label: 'Avventura' },
+              { label: 'Horror' },
+              { label: 'Fantascienza'}
+            ]
+        }];
     }
-  }
-  reload() {
+
+
+
+
+  
+  searchFilm() {
+      this.router.navigate(['home/' + this.queryCerca]);
+    } 
+    reload() {
     this.router.navigate(['home']);
   }
 }
