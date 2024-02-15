@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
+import { PrimeIcons} from 'primeng/api';
 
 @Component({
   selector: 'app-home-page',

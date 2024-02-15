@@ -14,9 +14,11 @@
           {{film.overview}}
         </p>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+      <mat-card-actions style="justify-content: space-around; font-size: 8px;">
+        <!-- <button class="pi pi-play"></button> -->
+        <button pButton pRipple type="button" label="Watch" class="p-button-outlined p-button-secondary"><span class="pi pi-play">&nbsp;</span></button>
+        <button pButton pRipple type="button" label="Share" class="p-button-outlined p-button-secondary"><span class="pi pi-share-alt">&nbsp;</span></button>
+        
       </mat-card-actions>
     </mat-card>
     </div>
@@ -32,5 +34,9 @@
             </p-card>
         </div>
     </p-card> -->
+</div>
+
+<div *ngIf="film">
+<h1>{{film}}</h1>
 </div>
 </p-card>
