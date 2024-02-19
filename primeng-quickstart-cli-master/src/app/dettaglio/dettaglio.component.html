@@ -1,33 +1,24 @@
 
 <p-card>
-
     <div *ngIf="film" class="container-div">
-        <div>
-            <mat-card class="example-card">
-        <img mat-card-image src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
-        <mat-card-content>
+        <div class="col-75">
+            <mat-card class="example-card" style="align-items: center;">
+                <img mat-card-image src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
+                <mat-card-content>
+
               <mat-card-title><h1>{{film.title}}</h1></mat-card-title>
             <p>
               {{film.overview}}
             </p>
           </mat-card-content>
-          <mat-card-actions style="justify-content: space-around; font-size: 8px;">
-            <!-- <button class="pi pi-play"></button> -->
-           </mat-card-actions>
+         
         </mat-card>
         </div>
     
+        <mat-card-footer>
+            FILM WORK IN PROGRESS...
+        </mat-card-footer>
         
-        <!-- <p-card *ngFor="let film of film.results" class="col-4">
-            <div  >
-                <p-card header="{{film.title}}" subheader="{{film.release_date}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
-                    <ng-template pTemplate="header">
-                        <img src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
-                    </ng-template>
-                    <p></p>
-                </p-card>
-            </div>
-        </p-card> -->
     </div>
     </p-card>
     
