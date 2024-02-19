@@ -22,6 +22,8 @@ export class HeaderComponent{
     reload() {
     this.router.navigate(['home']);
   }
+  
+
 }
 
 

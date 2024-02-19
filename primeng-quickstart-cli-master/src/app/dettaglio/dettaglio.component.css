@@ -15,25 +15,25 @@ mat-card-content{
     top: 150px;
     left: 0;
 }
-/* p{
+p{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 200%;
-} */
+    font-size: clamp(20px , 4vm , 32px);
+}
 mat-card-footer{
     position: absolute;
     top: 100%;
     left: 50%;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
     p {
         font-size: 200%;
     }
 }
 
-/* Dimensione del testo per i telefoni */
+/* Dimensione del testo per i telefoni 
 @media screen and (max-width: 767px) {
     p {
         font-size: 80%;
     }
-}
+} */

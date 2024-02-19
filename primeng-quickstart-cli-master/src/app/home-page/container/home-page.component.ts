@@ -46,5 +46,10 @@ goToDettaglio(id:number){
   console.log(id)
 
 }
+provaGoogleDrive(){
+ this.chiamateApi.provaChiamataGoogleDrive().subscribe(response=>{
+  console.log(response);
+ }) 
+}
 
 }
