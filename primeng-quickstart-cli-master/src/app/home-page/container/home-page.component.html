@@ -1,5 +1,7 @@
 
 <p-card>
+  <h3>I TITOLI DEL MOMENTO:</h3>
+  <button (click)="provaGoogleDrive()">provaGoogleDrive</button>
 <div *ngIf="film" class="container-div">
     <div *ngFor="let film of film.results" class="col-auto mr-3 ml-3">
         <mat-card class="example-card">
@@ -10,7 +12,9 @@
     <mat-card-content>
           <mat-card-title><h1>{{film.title}}</h1></mat-card-title>
         <p>
-          {{film.overview}}
+          Visto da {{film.popularity}} persone <br>
+          <span class="pi pi-star"></span> Voto: {{film.vote_average}}/10 <span class="pi pi-star"></span><br>
+          Votato da {{film.vote_count}} persone
         </p>
       </mat-card-content>
       <mat-card-actions style="justify-content: space-around; font-size: 8px;">
