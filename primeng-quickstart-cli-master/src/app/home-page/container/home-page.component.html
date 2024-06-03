@@ -1,7 +1,5 @@
 
 <p-card>
-  <h3>I TITOLI DEL MOMENTO:</h3>
-  <button (click)="provaGoogleDrive()">provaGoogleDrive</button>
 <div *ngIf="film" class="container-div">
     <div *ngFor="let film of film.results" class="col-auto mr-3 ml-3">
         <mat-card class="example-card">
@@ -24,17 +22,8 @@
       </mat-card-actions>
     </mat-card>
     </div>
-
-    
-    <!-- <p-card *ngFor="let film of film.results" class="col-4">
-        <div  >
-            <p-card header="{{film.title}}" subheader="{{film.release_date}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
-                <ng-template pTemplate="header">
-                    <img src="https://image.tmdb.org/t/p/original/{{film.poster_path}}">
-                </ng-template>
-                <p></p>
-            </p-card>
-        </div>
-    </p-card> -->
 </div>
+<h1 *ngIf="errorMessage">{{errorMessage}}</h1>
 </p-card>
+
+

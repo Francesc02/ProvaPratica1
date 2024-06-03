@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
+import { ChiamateAPIService } from '../services/chiamate-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CardModule } from 'primeng/card';
-import { ChiamateAPIService } from 'src/app/services/chiamate-api.service';
-import { PrimeIcons} from 'primeng/api';
-
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-generi',
+  templateUrl: './generi.component.html',
+  styleUrls: ['./generi.component.css']
 })
-export class HomePageComponent {
-
+export class GeneriComponent {
   film: unknown | null = null;
   query:string | undefined;
   errorMessage:string|null;
@@ -26,14 +22,7 @@ export class HomePageComponent {
       this.query = params['query'];
   }); 
   console.log(this.query);
-  if(this.query){
-    this.searchBar(this.query);
-  }else{
-    this.reload();
-  }
-
-
-  
+  this.searchGeneri();
 }
 
 goToDettaglio(id:number){
@@ -42,10 +31,14 @@ goToDettaglio(id:number){
 
 }
 
-searchBar(query:string){
-  if(query){
-    this.chiamateApi.searchFilm(query).subscribe(result=>{
+searchGeneri(){
+
+    this.chiamateApi.searchGeneri(this.query).subscribe(result=>{
       //chiamata durante la search al reload della pagina
+      let filmFiltratiPerGenere;
+
+    
+
       this.film=result;
       console.log(this.film);
       if(result.total_results == 0){
@@ -54,11 +47,6 @@ searchBar(query:string){
     })
   }
 }
-reload(){
-  this.chiamateApi.getFilm().subscribe(result=>{
-    this.film=result;
-    console.log(this.errorMessage);
-  })
-}
 
-}
+
+

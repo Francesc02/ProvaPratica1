@@ -27,9 +27,11 @@ import { DividerModule } from 'primeng/divider';
 import { SharedModule } from './shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
 import { DettaglioComponent } from './dettaglio/dettaglio.component';
+import { ContattiComponent } from './contatti/contatti.component';
+import { GeneriComponent } from './generi/generi.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomePageComponent,DettaglioComponent],
+  declarations: [AppComponent, HeaderComponent, HomePageComponent,DettaglioComponent,ContattiComponent,GeneriComponent],
   imports: [SharedModule, MatCardModule, FormsModule, AppRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

@@ -19,11 +19,6 @@ export class HeaderComponent{
   searchFilm() {
       this.router.navigate(['home/' + this.queryCerca]);
     } 
-    reload() {
-    this.router.navigate(['home']);
-  }
-  
-
 }
 
 
